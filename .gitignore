@@ -1,0 +1,43 @@
+# ================================
+# Root-level .gitignore
+# ================================
+
+# dependencies
+node_modules/
+
+# env files (all folders)
+.env
+.env.local
+.env.*.local
+
+# production builds
+dist/
+build/
+.next/
+out/
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# TypeScript build info
+*.tsbuildinfo
+
+# package lock (uncomment if you want to ignore)
+# package-lock.json
+
+# misc
+*.pem
