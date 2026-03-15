@@ -3,7 +3,7 @@ import cors from "cors";
 import { v4 as uuidv4 } from "uuid";
 import 'dotenv/config';
 const app = express();
-const PORT = 3001 || process.env.PORT;
+const PORT =  process.env.PORT;
 
 // Middleware
 app.use(cors());
@@ -17,7 +17,7 @@ interface Room {
     createdAt: Date;
 }
 
-console.log(process.env.base_url);
+console.log(process.env.BASE_URL);
 // In-memory store
 const rooms = new Map<string, Room>();
 
