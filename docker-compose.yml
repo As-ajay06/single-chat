@@ -1,0 +1,29 @@
+services:
+
+  web: 
+    build:
+      context: ./http
+      dockerfile: ../dockerfile/Dockerfile.backend
+    env_file:
+      - ./http/.backend.env
+    ports:
+      - "3001:3001"
+
+  socket:
+    build:
+      context: ./ws
+      dockerfile: ../dockerfile/Dockerfile.webSocket
+    env_file:
+      - ./ws/.socket.env
+    ports:
+      - "3002:3002"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../dockerfile/Dockerfile.frontend
+    env_file:
+      - ./frontend/.frontend.env
+    ports:
+      - "3000:3000"
+    
