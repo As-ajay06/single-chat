@@ -18,12 +18,4 @@ services:
     ports:
       - "3002:3002"
 
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: ../dockerfile/Dockerfile.frontend
-    env_file:
-      - ./frontend/.frontend.env
-    ports:
-      - "3000:3000"
-    
+   
