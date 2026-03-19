@@ -1,6 +1,4 @@
-# ================================
 # Root-level .gitignore
-# ================================
 
 # dependencies
 node_modules/
