@@ -122,7 +122,6 @@ docker compose logs -f
 # Specific service
 docker compose logs -f web
 docker compose logs -f socket
-docker compose logs -f frontend
 ```
 
 ### Restart a Single Service
