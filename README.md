@@ -123,9 +123,9 @@ docker compose logs -f
 docker compose logs -f web
 docker compose logs -f socket
 ```
+added reame file
 
 ### Restart a Single Service
-
 ```bash
 docker compose restart <service-name>
 ```
