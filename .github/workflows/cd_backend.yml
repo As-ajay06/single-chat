@@ -23,7 +23,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: ./dockfile/cd_backend.yml
+          context: ./dockerfile/cd_backend.yml
           push: true
           tags: in/single-chat-http:latest
 
