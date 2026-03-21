@@ -23,9 +23,9 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: ./http
+          context: ./dockfile/cd_backend.yml
           push: true
-          tags: ajaysahani06/single-chat-http:latest
+          tags: in/single-chat-http:latest
 
       # START THE CONTAINER.
       - name: Deploying
