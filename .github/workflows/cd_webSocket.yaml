@@ -1,42 +1,42 @@
-name: Docker image build
-on:
-  push:
-    branches:
-      - master
+# name: Docker image build
+# on:
+#   push:
+#     branches:
+#       - master
 
-jobs:
-  build:
-    name: Build docker image and push the repository.
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     name: Build docker image and push the repository.
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+#       - name: Login to Docker Hub
+#         uses: docker/login-action@v3
+#         with:
+#           username: ${{ secrets.DOCKERHUB_USERNAME }}
+#           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # PUSH THE CODE TO THE CONTAINER
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: ./ws
-          push: true
-          tags: ajaysahani06/single-chat-socket:latest
+#       # PUSH THE CODE TO THE CONTAINER
+#       - name: Build and push
+#         uses: docker/build-push-action@v4
+#         with:
+#           context: ./ws
+#           push: true
+#           tags: ajaysahani06/single-chat-socket:latest
 
-      # START THE CONTAINER.
-      - name: Deploying
-        uses: appleboy/ssh-action@v0.1.8
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          port: ${{ secrets.SSH_PORT }}
-          script: |
-            docker image pull ajaysahani06/single-chat-socket:latest
-            docker container stop single-chat-socket
-            docker container rm single-chat-socket
-            docker container run -d --name single-chat-socket -p 80:3001 ajaysahani06/single-chat-socket:latest
+#       # START THE CONTAINER.
+#       - name: Deploying
+#         uses: appleboy/ssh-action@v0.1.8
+#         with:
+#           host: ${{ secrets.SSH_HOST }}
+#           username: ${{ secrets.SSH_USER }}
+#           password: ${{ secrets.SSH_PASSWORD }}
+#           port: ${{ secrets.SSH_PORT }}
+#           script: |
+#             docker image pull ajaysahani06/single-chat-socket:latest
+#             docker container stop single-chat-socket
+#             docker container rm single-chat-socket
+#             docker container run -d --name single-chat-socket -p 80:3001 ajaysahani06/single-chat-socket:latest
